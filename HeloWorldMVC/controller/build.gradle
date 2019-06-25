@@ -5,11 +5,11 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * User Manual available at https://docs.gradle.org/5.4/userguide/java_library_plugin.html
  */
-
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
 }
+group='helloworldmvc.controller'
 
 repositories {
     // Use jcenter for resolving your dependencies.
@@ -18,30 +18,6 @@ repositories {
 }
 
 dependencies {
-    compile project(':controller')
+  	compile project(':model')
+	compile project(':view')
 }
-
-allprojects{
-	group = 'helloworldmvc'
-	//mainClassName='helloworldmvc.HelloWorldMVC'
-	version='0.0.1'
-}
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = 'sources'
-	from sourceSets.main.allSource
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-	classifier = 'javadoc'
-	from javadoc.destinationDir
-}
-artifacts {
-	archives sourcesJar
-	archives javadocJar
-}
-/*jar {
-manifest {
-attributes('Implementation-Title': project.name,
-'Implementation-Version': project.version,
-'Main-Class': project.mainClassName)
-}
-}*/
