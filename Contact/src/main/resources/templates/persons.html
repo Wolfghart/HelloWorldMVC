@@ -1,0 +1,20 @@
+<html>
+	<body>
+		Liste des personnes :
+	
+		<ul th:each="p : ${persons}"> 
+	    	<a th:href="'/detailPerson/'+${p.id}">
+	    		<li> 
+	    			<p th:text="${p.name} + ' : ' + ${p.age}"/>
+	    			<form th:action="'/deletePerson/'+${p.id}" method="get">
+  							<input type="submit" value="Supprimer">
+					</form>
+				</li>
+						
+	    	</a>
+		</ul>
+		<form action="/addperson" method="get">
+  			<input type="submit" value="Ajouter un contact">
+		</form>
+	</body>
+</html>

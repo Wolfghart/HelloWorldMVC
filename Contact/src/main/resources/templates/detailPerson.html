@@ -1,0 +1,27 @@
+<html>
+	<body>
+		Personne :
+		<ul>
+			<li th:text="'Name : '+${person.name}"/>
+			<li th:text="'age : '+${person.age}"/>
+			<li>
+				<ul th:each="e : ${person.emails}"> 
+			    	<li>
+			    		<p th:text="${e.email}"/>
+			    		<form th:action="'/deleteEmail/'+${e.id}" method="get">
+  							<input type="submit" value="Supprimer">
+						</form>
+			    	</li>
+				</ul>
+				<form th:action="'/addemail/'+${person.id}" method="get">
+  					<input type="submit" value="Ajouter email">
+				</form>
+			</li>
+		</ul>
+		<form th:action="'/updateperson/'+${person.id}" method="get">
+  			<input type="submit" value="Editer le contact">
+		</form>
+	
+		
+	</body>
+</html>

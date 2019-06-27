@@ -1,0 +1,9 @@
+<html>
+	<body>
+		Congratulations! You are old enough to sign up for this site.
+	
+		<ul th:each="p : ${persons}"> 
+	    	<li th:text="${p.name} + ' : ' + ${p.age}"/>
+		</ul>
+	</body>
+</html>

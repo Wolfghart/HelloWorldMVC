@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <form action="#" th:action="@{/formEmail}" th:object="${emailForm}" method="post">
+        	<input type="hidden" th:field="*{id}" />
+        	<input type="hidden" th:field="*{personID}" />
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Enregistrer</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
